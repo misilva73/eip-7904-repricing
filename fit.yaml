@@ -1,0 +1,47 @@
+version: 1
+
+# EIP-7904 targets operations performing worse than 100M gas/s.
+anchor_rate: 100000000
+
+clients:
+  - besu
+  - erigon
+  - geth
+  - nethermind
+  - reth
+
+gas_costs:
+  fork: osaka
+
+output:
+  plots: true
+
+# glue adjustment — off by default
+glue_adjustment:
+  enabled: true 
+
+models:
+  presets:
+    # --- Opcodes touched by EIP-7904 ---
+    - arithmetic_div
+    - arithmetic_sdiv
+    - arithmetic_mod_bits
+    - arithmetic_smod_bits
+    - arithmetic_addmod_bits
+    - arithmetic_mulmod_bits
+    - keccak
+
+    # --- Precompiles touched by EIP-7904 ---
+    - precompile_ecrecover
+    - precompile_blake2f
+    - precompile_blake2f_uncachable
+    - precompile_bls_g1add
+    - precompile_bls_g2add
+    - precompile_bn128_add
+    - precompile_bn128_add_uncachable
+    - precompile_bn128_pairing
+    - precompile_bn128_pairing_alt
+    - precompile_point_evaluation
+    - precompile_point_evaluation_uncachable
+    - precompile_p256verify
+    - precompile_p256verify_uncachable

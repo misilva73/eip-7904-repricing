@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EIP-7904 Repricing — Overview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">EIP-7904 Repricing</a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Overview</a>
+      <a href="new-gas.html">New Gas</a>
+      <a href="runtime.html">Runtime Model</a>
+      <a href="glue.html">Glue Runtime</a>
+      <a href="methodology.html">Methodology</a>
+    </nav>
+  </header>
+
+  <main class="content">
+<h1>EIP-7904 Repricing Analysis</h1>
+
+<p>
+  <a href="https://eips.ethereum.org/EIPS/eip-7904">EIP-7904</a> reprices a set of
+  EVM opcodes and precompiles. This site reports an empirical re-derivation of those
+  gas costs: NNLS regressions fit on client benchmark runtimes, anchored at
+  100&nbsp;Mgas/s, with the worst-case client selected per gas parameter. The
+  <a href="methodology.html">methodology</a> page documents the full pipeline.
+</p>
+
+<p class="takeaway">
+  Of the 18 gas parameters analysed,
+  <strong>15</strong> warrant an increase and
+  <strong>3</strong> could be reduced relative to the current cost
+  table. The largest pressure is concentrated in the modular-arithmetic opcodes
+  and several precompiles; see the <a href="new-gas.html">new-gas proposal</a> for
+  the per-parameter breakdown.
+</p>
+
+<div class="cards">
+  <a class="card" href="new-gas.html">
+    <h3>New Gas Proposal &rarr;</h3>
+    <p>Proposed vs. current gas per parameter, per-client comparison, and worst-case provenance.</p>
+  </a>
+  <a class="card" href="runtime.html">
+    <h3>Runtime Model &rarr;</h3>
+    <p>Per-opcode NNLS fits of runtime against opcode count, filterable by opcode and client.</p>
+  </a>
+  <a class="card" href="glue.html">
+    <h3>Glue Runtime &rarr;</h3>
+    <p>Per-client fits for the priced glue opcodes that the target coefficients are netted against.</p>
+  </a>
+  <a class="card" href="methodology.html">
+    <h3>Methodology &rarr;</h3>
+    <p>Benchmark suites, regression model, anchor, worst-case selection, and how to reproduce.</p>
+  </a>
+</div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="repro">
+      Suites
+<code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · fork amsterdam
+      · run 2026-05-29T13:25:43Z
+      · evm-gasfit 0.0.1
+      · benchmarkoor-fetch 0.1.0
+      · commit <code>4bdc57c</code>
+    </p>
+  </footer>
+</body>
+</html>

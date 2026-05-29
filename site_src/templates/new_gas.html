@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}New Gas Proposal — EIP-7904{% endblock %}
+{% block content %}
+<h1>New gas proposal</h1>
+<p>
+  Worst-case-across-clients gas costs derived from the runtime fits, compared against
+  the current Osaka cost table. Rendered from the generated proposal report; see the
+  <a href="runtime.html">runtime</a> and <a href="glue.html">glue</a> pages for the
+  underlying per-fit detail.
+</p>
+{{ report_html | safe }}
+{% endblock %}

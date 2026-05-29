@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}EIP-7904 Repricing{% endblock %}</title>
+  <link rel="stylesheet" href="style.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">EIP-7904 Repricing</a>
+    <nav class="site-nav">
+      <a href="index.html"{% if page == 'index' %} class="active"{% endif %}>Overview</a>
+      <a href="new-gas.html"{% if page == 'new-gas' %} class="active"{% endif %}>New Gas</a>
+      <a href="runtime.html"{% if page == 'runtime' %} class="active"{% endif %}>Runtime Model</a>
+      <a href="glue.html"{% if page == 'glue' %} class="active"{% endif %}>Glue Runtime</a>
+      <a href="methodology.html"{% if page == 'methodology' %} class="active"{% endif %}>Methodology</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p class="repro">
+      {% if meta %}
+      Suites
+      {% for suite in meta.suites %}<code>{{ suite }}</code>{% if not loop.last %}, {% endif %}{% endfor %}
+      · fork {{ meta.fork }}
+      · run {{ meta.run_timestamp }}
+      · evm-gasfit {{ meta.gasfit_version }}
+      · benchmarkoor-fetch {{ meta.fetch_version }}
+      · commit <code>{{ meta.commit }}</code>
+      {% else %}
+      Reproducibility footer rendered at build time.
+      {% endif %}
+    </p>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

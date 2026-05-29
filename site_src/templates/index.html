@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}EIP-7904 Repricing — Overview{% endblock %}
+{% block content %}
+<h1>EIP-7904 Repricing Analysis</h1>
+
+<p>
+  <a href="https://eips.ethereum.org/EIPS/eip-7904">EIP-7904</a> reprices a set of
+  EVM opcodes and precompiles. This site reports an empirical re-derivation of those
+  gas costs: NNLS regressions fit on client benchmark runtimes, anchored at
+  100&nbsp;Mgas/s, with the worst-case client selected per gas parameter. The
+  <a href="methodology.html">methodology</a> page documents the full pipeline.
+</p>
+
+<p class="takeaway">
+  Of the {{ proposed | length }} gas parameters analysed,
+  <strong>{{ n_up }}</strong> warrant an increase and
+  <strong>{{ n_down }}</strong> could be reduced relative to the current cost
+  table. The largest pressure is concentrated in the modular-arithmetic opcodes
+  and several precompiles; see the <a href="new-gas.html">new-gas proposal</a> for
+  the per-parameter breakdown.
+</p>
+
+<div class="cards">
+  <a class="card" href="new-gas.html">
+    <h3>New Gas Proposal &rarr;</h3>
+    <p>Proposed vs. current gas per parameter, per-client comparison, and worst-case provenance.</p>
+  </a>
+  <a class="card" href="runtime.html">
+    <h3>Runtime Model &rarr;</h3>
+    <p>Per-opcode NNLS fits of runtime against opcode count, filterable by opcode and client.</p>
+  </a>
+  <a class="card" href="glue.html">
+    <h3>Glue Runtime &rarr;</h3>
+    <p>Per-client fits for the priced glue opcodes that the target coefficients are netted against.</p>
+  </a>
+  <a class="card" href="methodology.html">
+    <h3>Methodology &rarr;</h3>
+    <p>Benchmark suites, regression model, anchor, worst-case selection, and how to reproduce.</p>
+  </a>
+</div>
+{% endblock %}
