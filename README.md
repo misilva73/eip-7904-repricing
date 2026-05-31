@@ -4,6 +4,8 @@ A static, multi-page site summarising the [EIP-7904](https://eips.ethereum.org/E
 gas-repricing analysis. The analysis fits NNLS regressions on EVM client benchmark
 runtimes to propose new gas costs for the opcodes and precompiles touched by the EIP.
 
+**Live site:** <https://misilva73.github.io/eip-7904-repricing/>
+
 ## Pipeline
 
 ```text

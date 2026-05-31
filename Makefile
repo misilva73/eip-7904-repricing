@@ -1,7 +1,9 @@
 BENCHMARKOOR_TOKEN := $(shell jq -r .benchmarkoor_bearer_token secrets.json)
 export BENCHMARKOOR_TOKEN
 
-.PHONY: all fetch gasfit site clean
+PORT ?= 8000
+
+.PHONY: all fetch gasfit site serve clean
 
 all:
 	$(MAKE) fetch
@@ -19,6 +21,9 @@ gasfit:
 
 site:
 	python scripts/build_site.py
+
+serve:
+	python -m http.server $(PORT) --directory docs/
 
 clean:
 	rm -rf data/ docs/
