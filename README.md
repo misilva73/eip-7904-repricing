@@ -50,6 +50,7 @@ rejects it).
 make fetch     # → data/raw/    (reads token from secrets.json)
 make gasfit    # → data/gasfit/
 make site      # renders site_src/templates → docs/, copies figures
+make serve     # preview docs/ locally on http://localhost:8000 (override PORT=…)
 # or end-to-end:
 make
 ```

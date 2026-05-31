@@ -13,6 +13,7 @@ README.md has user-facing setup/run docs — this file is for *changing* the rep
 ## Common tasks
 - **Re-run end-to-end:** `make` (= `make fetch gasfit site`). `make clean` wipes `data/` + `docs/`.
 - **Rebuild site only** (after template/asset edits): `make site` — no token needed.
+- **Preview locally:** `make serve` (serves `docs/` on `:8000`; override with `PORT=…`).
 - **Re-fit only** (after `fit.yaml` edits): `make gasfit && make site`.
 - **Change the op set:** edit `models.presets` in `fit.yaml` (preset names; 101 available in evm-gasfit). New 7904 gas params that error as missing in the osaka table go under `new_params`.
 - **Re-pin suites:** `benchmarkoor-fetch suites --network <n> --fork <f> --test-type <t>` → paste hashes into `fetch.yaml`. `run_id_pattern` is a full regex match.
