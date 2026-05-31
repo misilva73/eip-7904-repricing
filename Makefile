@@ -21,4 +21,4 @@ site:
 	python scripts/build_site.py
 
 clean:
-	rm -rf data/ site/
+	rm -rf data/ docs/

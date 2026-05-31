@@ -7,7 +7,7 @@ runtimes to propose new gas costs for the opcodes and precompiles touched by the
 ## Pipeline
 
 ```text
-benchmarkoor-fetch  →  evm-gasfit  →  build_site.py  →  site/  (GitHub Pages)
+benchmarkoor-fetch  →  evm-gasfit  →  build_site.py  →  docs/  (GitHub Pages)
    (data/raw/)         (data/gasfit/)     (Jinja2)
 ```
 
@@ -16,10 +16,10 @@ benchmarkoor-fetch  →  evm-gasfit  →  build_site.py  →  site/  (GitHub Pag
 2. **Fit** — `evm-gasfit` runs the NNLS estimation (driven by [fit.yaml](fit.yaml)) and
    emits the proposal artifacts and reports into `data/gasfit/`.
 3. **Build** — `scripts/build_site.py` renders the Jinja2 templates in `site_src/` into
-   `site/`, pulling structured data (CSVs, parsed reports) from `data/gasfit/`.
-4. **Deploy** — GitHub Pages serves `site/` from `main`.
+   `docs/`, pulling structured data (CSVs, parsed reports) from `data/gasfit/`.
+4. **Deploy** — GitHub Pages serves `docs/` from `main`.
 
-`data/` is committed alongside `site/` so the published site is self-contained and auditable.
+`data/` is committed alongside `docs/` so the published site is self-contained and auditable.
 
 ## Setup
 
@@ -47,12 +47,12 @@ rejects it).
 ```bash
 make fetch     # → data/raw/    (reads token from secrets.json)
 make gasfit    # → data/gasfit/
-make site      # renders site_src/templates → site/, copies figures
+make site      # renders site_src/templates → docs/, copies figures
 # or end-to-end:
 make
 ```
 
-`make clean` removes `data/` and `site/`.
+`make clean` removes `data/` and `docs/`.
 
 ## Layout
 
@@ -60,9 +60,9 @@ make
 | --- | --- |
 | `fetch.yaml` | benchmarkoor-fetch config (pinned suites, amsterdam fork) |
 | `fit.yaml` | evm-gasfit config (anchor 1e8, osaka cost table, presets, glue on) |
-| `scripts/build_site.py` | renders templates → `site/`, copies figures |
+| `scripts/build_site.py` | renders templates → `docs/`, copies figures |
 | `site_src/templates/` | Jinja2 templates (`base.html` + one per page) |
 | `site_src/assets/` | `style.css`, `runtime_filter.js` |
 | `data/raw/` | fetched benchmark inputs |
 | `data/gasfit/` | estimation outputs (CSVs, reports, `figs/`) |
-| `site/` | generated static site (served by GitHub Pages) |
+| `docs/` | generated static site (served by GitHub Pages) |

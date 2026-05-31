@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the EIP-7904 repricing site from ``data/`` into ``site/``.
+"""Render the EIP-7904 repricing site from ``data/`` into ``docs/``.
 
 Data sources (all produced by ``make fetch`` + ``make gasfit``):
 
@@ -7,7 +7,7 @@ Data sources (all produced by ``make fetch`` + ``make gasfit``):
 * ``data/gasfit/new_gas_proposal.md``   — rendered wholesale for the new-gas page
 * ``data/gasfit/*_report.md``           — parsed into filterable per-fit sections
 * ``data/gasfit/glue_results.csv``      — per (client, glue_opcode) glue headline stats
-* ``data/gasfit/figs/{proposal,runtime,glue}/`` — copied verbatim into ``site/figs/``
+* ``data/gasfit/figs/{proposal,runtime,glue}/`` — copied verbatim into ``docs/figs/``
 
 The runtime and glue pages are the only ones with structured parsing; everything
 else is either static narrative or a wholesale markdown render.
@@ -32,7 +32,7 @@ GASFIT = ROOT / "data" / "gasfit"
 SRC = ROOT / "site_src"
 TEMPLATES = SRC / "templates"
 ASSETS = SRC / "assets"
-OUT = ROOT / "site"
+OUT = ROOT / "docs"
 
 MD_EXTENSIONS = ["tables", "fenced_code", "sane_lists", "md_in_html", "toc"]
 
@@ -252,6 +252,9 @@ def build_env() -> Environment:
 
 def copy_static() -> None:
     OUT.mkdir(exist_ok=True)
+    # Disable GitHub Pages' Jekyll processing so files/dirs with leading
+    # underscores are served verbatim instead of being silently dropped.
+    (OUT / ".nojekyll").touch()
     for asset in ASSETS.iterdir():
         shutil.copy2(asset, OUT / asset.name)
     figs_src = GASFIT / "figs"

@@ -1,22 +1,22 @@
 # CLAUDE.md — maintaining eip-7904-repricing
 
-Pipeline: `benchmarkoor-fetch` → `evm-gasfit` → `build_site.py` → `site/` (GitHub Pages, `main`, `/site`).
+Pipeline: `benchmarkoor-fetch` → `evm-gasfit` → `build_site.py` → `docs/` (GitHub Pages, `main`, `/docs`).
 README.md has user-facing setup/run docs — this file is for *changing* the repo. Don't duplicate the README.
 
 ## Layout that matters
 - `fetch.yaml` — what benchmark data to pull (pinned suites, fork).
 - `fit.yaml` — the estimation: anchor, clients, cost-table fork, op presets, glue.
-- `scripts/build_site.py` — renders `site_src/templates/` → `site/`, parses `data/gasfit/` reports.
-- `site_src/{templates,assets}/` — edit these, never `site/` (regenerated).
+- `scripts/build_site.py` — renders `site_src/templates/` → `docs/`, parses `data/gasfit/` reports.
+- `site_src/{templates,assets}/` — edit these, never `docs/` (regenerated).
 - `data/raw/` — fetched inputs; `data/gasfit/` — estimation outputs. Both committed.
 
 ## Common tasks
-- **Re-run end-to-end:** `make` (= `make fetch gasfit site`). `make clean` wipes `data/` + `site/`.
+- **Re-run end-to-end:** `make` (= `make fetch gasfit site`). `make clean` wipes `data/` + `docs/`.
 - **Rebuild site only** (after template/asset edits): `make site` — no token needed.
 - **Re-fit only** (after `fit.yaml` edits): `make gasfit && make site`.
 - **Change the op set:** edit `models.presets` in `fit.yaml` (preset names; 101 available in evm-gasfit). New 7904 gas params that error as missing in the osaka table go under `new_params`.
 - **Re-pin suites:** `benchmarkoor-fetch suites --network <n> --fork <f> --test-type <t>` → paste hashes into `fetch.yaml`. `run_id_pattern` is a full regex match.
-- **Deploy:** commit updated `data/` + `site/`, push `main`. No CI.
+- **Deploy:** commit updated `data/` + `docs/`, push `main`. No CI. (GitHub Pages → Settings → Pages: source `main` / `/docs`.)
 
 ## Gotchas
 - **secrets.json** (gitignored, repo root): `{ "benchmarkoor_bearer_token": "bmk_..." }`. Makefile reads it with `jq`, exports `BENCHMARKOOR_TOKEN`. Never put the token in `fetch.yaml` (loader rejects it). Never commit it.
