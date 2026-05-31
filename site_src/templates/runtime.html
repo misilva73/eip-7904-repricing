@@ -39,14 +39,14 @@
   <details>
     <summary>NNLS regression summary</summary>
     <pre><code>{{ s.nnls }}</code></pre>
+    <div class="plot-grid">
+      {% for f in s.figs %}
+      <figure><a href="{{ f }}"><img src="{{ f }}" loading="lazy" alt=""></a>
+        <figcaption>{{ f.rsplit('__', 1)[-1][:-4] }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
   </details>
-  <div class="cards">
-    {% for f in s.figs %}
-    <figure><a href="{{ f }}"><img src="{{ f }}" loading="lazy" alt=""></a>
-      <figcaption>{{ f.rsplit('__', 1)[-1][:-4] }}</figcaption>
-    </figure>
-    {% endfor %}
-  </div>
 </section>
 {% endfor %}
 {% endblock %}

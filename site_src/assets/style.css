@@ -155,6 +155,11 @@ figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
 
 /* Cards (landing page) */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
+
+/* Plot grid (fit/glue pages): 2 plots per row; a lone trailing plot spans both columns */
+.plot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 2rem 0; }
+.plot-grid > figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 640px) { .plot-grid { grid-template-columns: 1fr; } }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);

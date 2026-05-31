@@ -35,7 +35,7 @@
     <span class="stat">R² <strong>{{ s.rsquared | g4 }}</strong></span>
   </div>
   {% if s.figs %}
-  <div class="cards">
+  <div class="plot-grid">
     {% for f in s.figs %}
     <figure><a href="{{ f }}"><img src="{{ f }}" loading="lazy" alt=""></a>
       <figcaption>{{ f.rsplit('__', 1)[-1][:-4] }}</figcaption>
