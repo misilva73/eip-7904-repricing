@@ -12,6 +12,7 @@
   --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.04);
   --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08), 0 2px 4px rgba(16, 24, 40, 0.04);
   --max-width: 960px;
+  --header-h: 56px;
 }
 
 * { box-sizing: border-box; }
@@ -99,13 +100,14 @@ body {
 
 /* Tables */
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
   margin: 1.5rem 0;
   font-size: 0.92rem;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
 th, td { border-bottom: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: right; }
@@ -113,10 +115,17 @@ tr:last-child td { border-bottom: none; }
 th {
   background: var(--code-bg);
   position: sticky;
-  top: 56px;
+  top: var(--header-h);
+  z-index: 2;
   font-weight: 600;
   white-space: nowrap;
+  box-shadow: inset 0 -1px 0 var(--border);
 }
+/* Round outer corners without overflow:hidden (which would break sticky th) */
+thead tr:first-child th:first-child { border-top-left-radius: 8px; }
+thead tr:first-child th:last-child { border-top-right-radius: 8px; }
+tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+tbody tr:last-child td:last-child { border-bottom-right-radius: 8px; }
 tbody tr { transition: background 0.1s ease; }
 tbody tr:nth-child(even) { background: rgba(16, 24, 40, 0.018); }
 tbody tr:hover { background: rgba(47, 111, 237, 0.06); }
