@@ -96,6 +96,10 @@ body {
   margin: 1.5rem 0;
   box-shadow: var(--shadow-sm);
 }
+.takeaway > :first-child { margin-top: 0; }
+.takeaway > :last-child { margin-bottom: 0; }
+.takeaway ol, .takeaway ul { padding-left: 1.25rem; }
+.takeaway li + li { margin-top: 0.4rem; }
 
 /* Tables */
 table {

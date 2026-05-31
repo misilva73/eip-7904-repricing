@@ -3,70 +3,172 @@
 {% block content %}
 <h1>Methodology</h1>
 
-<h2>Benchmark data</h2>
 <p>
-  Runtimes are pulled from the Benchmarkoor API by
-  <code>benchmarkoor-fetch</code>, pinned to two jochennet suite hashes for
-  reproducibility:
+  The proposed gas parameters come from the actual time each execution client takes to run
+  a targeted set of benchmarks: runtimes are collected from the Benchmarkoor API by
+  <code>benchmarkoor-fetch</code> and turned into gas numbers by <code>evm-gasfit</code>.
+  Five stages turn a wall-clock measurement into a gas number:
+</p>
+<div class="takeaway">
+  <ol>
+    <li><strong>Benchmark data collection</strong> — synthetic blocks stress one operation
+      at a time; Benchmarkoor records each block's runtime and opcode counts.</li>
+    <li><strong>Runtime model</strong> — an NNLS regression isolates the per-unit
+      runtime of each opcode, per client.</li>
+    <li><strong>Glue adjustment</strong> — the overhead of the supporting opcodes
+      that surround the target in each fixture is netted out.</li>
+    <li><strong>Runtime → gas</strong> — the adjusted runtime is converted to gas at
+      a fixed anchor rate.</li>
+    <li><strong>Worst-case selection</strong> — the proposal takes the slowest
+      client for each parameter, then evaluates any derived parameters.</li>
+  </ol>
+</div>
+
+<h2>1. Benchmark data collection</h2>
+<p>
+  The proposed gas costs are grounded in the actual time each execution client takes to run
+  a specific set of benchmarks. Similar to the methodology of the
+  <a href="https://github.com/imapp-pl/gas-cost-estimator">Gas Cost Estimator</a> project,
+  we generate synthetic blocks that isolate and stress individual EVM operations and use
+  them to derive the various gas parameters.
+</p>
+<p>
+  Concretely, to benchmark a single operation, different blocks are created by varying the
+  number of times the target operation is executed and by changing the parameter values
+  passed to it. These test blocks come from the
+  <a href="https://github.com/ethereum/execution-spec-tests">EEST benchmark suite</a>. The
+  raw data that feeds this analysis was queried from the following two Benchmarkoor suites:
 </p>
 <ul>
   {% for suite in meta.suites %}<li><code>{{ suite }}</code></li>{% endfor %}
 </ul>
 <p>
-  The benchmarks ran on the <strong>{{ meta.fork }}</strong> fork; runs are selected by
-  the <code>.*-full.*</code> run-id pattern. The compute suite drives the target-opcode
-  fits, while the stateful suite feeds the glue-opcode analysis.
+  The Benchmarkoor tool then runs each block and collects the metrics we need: the block's
+  total execution time and the number of times each operation was executed. Each block is
+  run multiple times on every client to account for variability in execution time. Runtimes
+  are pulled from the Benchmarkoor API by <code>benchmarkoor-fetch</code>; the benchmarks
+  ran on the <strong>{{ meta.fork }}</strong> fork and runs are selected by the
+  <code>.*-full.*</code> run-id pattern. The compute suite drives the target-opcode fits,
+  while the stateful suite feeds the glue-opcode analysis. Each block contributes one row to
+  the model: a measured <code>test_runtime_ms</code> alongside the count of every opcode it
+  executed.
+</p>
+
+<h2>2. Runtime model (NNLS)</h2>
+<p>
+  <code>evm-gasfit</code> solves one non-negative least squares (NNLS) regression per
+  <em>(opcode spec, model variant, client)</em> combination. It models the measured
+  runtime of each fixture as a linear function of how many times the target opcode runs:
+</p>
+<pre><code>test_runtime_ms = intercept + target_coef · opcount + Σ (param_i · opcount · value_i)</code></pre>
+<p>
+  The <code>target_coef</code> — the per-unit runtime of the opcode under study — is the
+  quantity we care about. The trailing sum carries variable-cost terms: opcodes whose cost
+  scales with an operand (MOD/SMOD/ADDMOD/MULMOD by bit-width, KECCAK256 base + per-word,
+  several precompiles) get their own fixture parameters, while constant-cost opcodes
+  (DIV, SDIV) collapse to a single coefficient. Parameters that are constant across all
+  fixtures are dropped automatically — their column is indistinguishable from
+  <code>target_coef</code> — and a fit is skipped entirely if there are too few
+  observations or the opcount never varies.
+</p>
+<p>
+  The <strong>non-negativity</strong> constraint is the point of NNLS: gas costs cannot be
+  negative, and an unconstrained fit would let correlated features take opposite signs to
+  cancel noise. NNLS instead drives such a coefficient to exactly zero or spreads the
+  signal across the remaining features.
+</p>
+<p>
+  Inference is a non-parametric <strong>bootstrap</strong> over the rows of the design
+  matrix (1000 iterations). Each coefficient gets a p-value — the bootstrap share of
+  near-zero estimates — and a 2.5 / 97.5 percentile confidence interval. A fit is flagged
+  as a <em>poor-fit selection</em> when its p-value exceeds <code>0.05</code> or its R²
+  falls below <code>0.5</code>. Fits cover {{ fit.clients | length }} clients:
+</p>
+<ul>
+  {% for c in fit.clients %}<li><code>{{ c }}</code></li>{% endfor %}
+</ul>
+<p>
+  See the <a href="runtime.html">runtime model page</a> for every per-fit regression
+  summary, or the
+  <a href="https://misilva73.github.io/evm-gasfit/concepts/nnls/">evm-gasfit NNLS docs</a>
+  for the full derivation.
+</p>
+
+<h2>3. Glue adjustment</h2>
+<p>
+  Glue adjustment is <strong>{{ "enabled" if fit.glue_adjustment.enabled else "disabled" }}</strong>.
+  A benchmark never measures an opcode in isolation: the recorded runtime also includes the
+  <em>glue</em> opcodes that set up arguments, advance the program counter, and clean the
+  stack (pushes, dups, loads, control flow). Because NNLS attributes the entire
+  <code>intercept + target_coef · opcount</code> budget to the target, glue that scales with
+  the loop body inflates the estimate. Glue adjustment removes that overhead before the
+  runtime is converted to gas.
+</p>
+<p>
+  <code>evm-gasfit</code> works from a fixed set of canonical glue opcodes, fit in
+  dependency tiers (pure opcodes first, then cycle, then mixed tiers that lean on the
+  already-priced ones). The adjustment runs in three steps:
+</p>
+<ul>
+  <li><strong>Detect</strong> which glue opcodes actually contaminated each measurement, by
+    correlating each glue opcode's per-fixture count against the target
+    <code>opcount</code> and recording the count ratio <code>Δglue / Δopcount</code>.</li>
+  <li><strong>Estimate</strong> a per-unit runtime (<code>glue_runtime_ms</code>) for every
+    <em>(client, glue opcode)</em> with its own tiered NNLS fit.</li>
+  <li><strong>Subtract</strong> the total glue overhead from the target coefficient:</li>
+</ul>
+<pre><code>adjusted_target_coef = max(0, target_coef − Σ_g ratio_g · glue_runtime_ms_g)</code></pre>
+<p>
+  A glue partner only contributes to the sum when its own fit clears the same
+  p-value (&lt; 0.05) and R² (&ge; 0.5) gates; the confidence interval shifts with it and
+  clips at zero. Skipped fits — targets left without a glue correction — are listed under
+  <a href="new-gas.html">Warnings</a>. See the <a href="glue.html">glue page</a> for the
+  per-fit detail and the
+  <a href="https://misilva73.github.io/evm-gasfit/concepts/glue/">evm-gasfit glue docs</a>
+  for the tier structure.
+</p>
+
+<h2>4. Runtime → gas</h2>
+<p>
+  Each adjusted runtime coefficient is converted to gas at a fixed anchor rate of
+  <strong>{{ "{:,}".format(fit.anchor_rate) }}</strong> gas/s (100&nbsp;Mgas/s) — the
+  throughput EIP-7904 targets. With <code>runtime_ms</code> in milliseconds:
+</p>
+<pre><code>new_gas = ⌈ anchor_rate · runtime_ms / 1000 ⌉</code></pre>
+<p>
+  Any op whose measured cost implies a slower throughput than the anchor lands above its
+  current price and is flagged for a bump; the ceiling keeps the result an integer.
+</p>
+
+<h2>5. Worst-case selection &amp; derived parameters</h2>
+<p>
+  A single gas parameter is fit many times — once per client, sometimes across several
+  fixtures. The proposal consolidates those in two passes, always erring toward the slowest
+  observation so the cost holds on every implementation:
+</p>
+<ul>
+  <li><strong>Per client</strong> — among the rows that pass the p-value and R² gates, take
+    the one with the largest runtime; if none qualify, the best available is kept and
+    flagged <code>poor_fit</code>.</li>
+  <li><strong>Across clients</strong> — take the client with the largest runtime.</li>
+</ul>
+<p>
+  Finally, <em>derived</em> parameters (those defined in terms of others) are evaluated in
+  declaration order against the fitted values, the fork baseline, and any
+  <code>new_params</code> integer baselines, using a small arithmetic-only expression
+  language. The <a href="new-gas.html#client-comparison">client comparison</a> shows how
+  far the worst client sits from the rest of the field. The
+  <a href="https://misilva73.github.io/evm-gasfit/concepts/gas-params/">evm-gasfit gas-params docs</a>
+  cover the selection and derivation rules in full.
 </p>
 
 <h2>Gas-cost baseline</h2>
 <p>
   Proposed values are compared against the <strong>{{ fit.gas_costs.fork }}</strong>
   gas-cost table — distinct from the {{ meta.fork }} fork the benchmarks ran on. The
-  {{ fit.gas_costs.fork }} table is the intended cost baseline for the EIP-7904 proposal.
-</p>
-
-<h2>Regression model</h2>
-<p>
-  Each fit is a non-negative least squares (NNLS) regression of test runtime against
-  opcode count, with bootstrap inference (1000 iterations). The target coefficient is
-  the per-unit runtime of the opcode under study. Variable-cost opcodes
-  (MOD/SMOD/ADDMOD/MULMOD by bit-width, KECCAK256 base + per-word, several precompiles)
-  are modelled with their own fixture parameters; constant-cost opcodes (DIV, SDIV) use
-  a single coefficient.
-</p>
-<p>Fits cover {{ fit.clients | length }} clients:</p>
-<ul>
-  {% for c in fit.clients %}<li><code>{{ c }}</code></li>{% endfor %}
-</ul>
-
-<h2>Anchor &amp; worst-case selection</h2>
-<p>
-  Each opcode's measured runtime is converted to gas at an anchor rate of
-  <strong>{{ "{:,}".format(fit.anchor_rate) }}</strong> gas/s (100&nbsp;Mgas/s) — any op
-  running slower than this anchor is flagged for a bump. For every gas parameter the
-  proposal takes the <em>worst-case across clients</em>: the highest per-client gas value,
-  so the cost holds on the slowest client. The
-  <a href="new-gas.html#client-comparison">client comparison</a> shows how far the worst
-  client sits from the rest of the field.
-</p>
-
-<h2>Glue adjustment</h2>
-<p>
-  Glue adjustment is <strong>{{ "enabled" if fit.glue_adjustment.enabled else "disabled" }}</strong>.
-  When enabled, the runtime attributed to a target opcode is netted against the runtimes
-  of the priced "glue" opcodes that surround it in the benchmark fixtures (loads, pushes,
-  dups, control flow). A glue fit is only subtracted when it passes its p-value
-  (&lt; 0.05) and R² (&ge; 0.5) thresholds; skipped fits are listed under
-  <a href="new-gas.html">Warnings</a>. See the <a href="glue.html">glue page</a> for the
-  per-fit detail.
-</p>
-
-<h2>Filters</h2>
-<p>
-  All exclusions are expressed in configuration rather than a pre-processing step. The
-  ethrex client is dropped by omission from the client list; per-op fixture exclusions
-  (e.g. <code>bn128_add_infinities</code>, the <code>test_arithmetic</code> selection for
-  the modular opcodes) ride along inside each preset's built-in selectors.
+  baseline is the {{ fit.gas_costs.fork }} <code>GasCosts</code> patched with any config
+  overrides and <code>new_params</code> baselines, and it is the intended cost reference for
+  the EIP-7904 proposal.
 </p>
 
 <h2>Reproducibility</h2>
