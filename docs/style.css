@@ -163,7 +163,8 @@ figure img {
 figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
 
 /* Cards (landing page) */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 2rem 0; }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
 
 /* Plot grid (fit/glue pages): 2 plots per row; a lone trailing plot spans both columns */
 .plot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 2rem 0; }
