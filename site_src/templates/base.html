@@ -28,7 +28,6 @@
       {% if meta %}
       Suites
       {% for suite in meta.suites %}<code>{{ suite }}</code>{% if not loop.last %}, {% endif %}{% endfor %}
-      · fork {{ meta.fork }}
       · run {{ meta.run_timestamp }}
       · evm-gasfit {{ meta.gasfit_version }}
       · benchmarkoor-fetch {{ meta.fetch_version }}
