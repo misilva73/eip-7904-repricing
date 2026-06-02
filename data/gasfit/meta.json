@@ -1,6 +1,6 @@
 {
   "evm_gasfit_version": "0.0.1",
-  "run_started_at": "2026-05-31T10:28:18+00:00",
+  "run_started_at": "2026-06-02T09:40:09+00:00",
   "inputs": {
     "config": "fit.yaml",
     "runtimes": "data/raw/runtimes.csv",
@@ -59,6 +59,27 @@
     "test_transaction_types.py__test_ether_transfers_onchain_receivers[fork_Amsterdam-benchmark_test-transfer_amount_1-case_id_diff_to_nonexistent-benchmark_300M]"
   ],
   "warnings": [
-    "WARNING evm_gasfit: 44 fixtures present in runtimes CSV but missing from opcounts JSON; dropped from analysis (see meta.json for full list)"
+    "WARNING evm_gasfit: 44 fixtures present in runtimes CSV but missing from opcounts JSON; dropped from analysis (see meta.json for full list)",
+    "WARNING evm_gasfit.glue: glue pure-fit skipped: client=erigon opcode=ISZERO has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue pure-fit skipped: client=erigon opcode=JUMPDEST has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue pure-fit skipped: client=erigon opcode=SWAP has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=ADD has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=AND has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=CALLDATACOPY has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=CALLDATALOAD has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=DIV has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=EXP has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=GT has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=JUMPI has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=LT has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=MSTORE has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=MSTORE8 has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=MUL has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=PC has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=RETURNDATASIZE has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=SELFBALANCE has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=SUB has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=JUMP has no driver fixtures",
+    "WARNING evm_gasfit.glue: glue mixed-fit skipped: client=erigon opcode=KECCAK256 has no driver fixtures"
   ]
 }
