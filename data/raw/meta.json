@@ -1,22 +1,22 @@
 {
   "data_window": {
-    "end": "2026-06-02T08:55:44Z",
-    "start": "2026-06-02T00:00:44Z"
+    "end": "2026-06-03T06:37:10Z",
+    "start": "2026-06-03T00:01:39Z"
   },
-  "fetched_at": "2026-06-02T09:40:07Z",
+  "fetched_at": "2026-06-03T07:49:37Z",
   "package_version": "0.2.0",
   "query": {
     "end_date": null,
     "fork": "amsterdam",
     "network": null,
     "run_id_pattern": ".*-full.*",
-    "start_date": "2026-06-02",
+    "start_date": "2026-06-03",
     "test_type": null
   },
   "row_counts": {
-    "bench_data": 219267,
+    "bench_data": 179215,
     "opcounts": 5375,
-    "runtimes": 219267,
+    "runtimes": 179215,
     "trace": 5375
   },
   "suites": [

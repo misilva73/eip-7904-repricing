@@ -5,7 +5,7 @@ description = "Static site summarising the EIP-7904 gas-repricing analysis"
 requires-python = ">=3.11"
 dependencies = [
     "benchmarkoor-fetch>=0.2.0",
-    "evm-gasfit>=0.0.2",
+    "evm-gasfit>=0.0.4",
     "jinja2>=3.1",
     "pandas>=2.0",
     "markdown>=3.4",

@@ -26,8 +26,8 @@
   <a href="runtime.html">runtime</a> and <a href="glue.html">glue</a> pages for the
   underlying per-fit detail.
 </p>
-<p><em>Generated 2026-06-02 09:40:51Z · fork <code>osaka</code> · anchor_rate 100 Mgas/s</em></p>
-<p><strong>Summary:</strong> 18 parameters proposed — 1 increased, 16 decreased, 0 new, 0 unresolved · 0 warnings · 19 poor-fit selections</p>
+<p><em>Generated 2026-06-03 07:50:20Z · fork <code>osaka</code> · anchor_rate 100 Mgas/s</em></p>
+<p><strong>Summary:</strong> 18 parameters proposed — 1 increased, 16 decreased, 0 new, 0 unresolved · 0 warnings · 2 poor-fit selections</p>
 <h2 id="proposed-gas-parameters">Proposed gas parameters</h2>
 <table>
 <thead>
@@ -78,16 +78,16 @@
 <tr>
 <td>OPCODE_MULMOD</td>
 <td>8</td>
-<td>5</td>
-<td>-3</td>
-<td>-38%</td>
+<td>4</td>
+<td>-4</td>
+<td>-50%</td>
 </tr>
 <tr>
 <td>OPCODE_KECCAK256_BASE</td>
 <td>30</td>
-<td>14</td>
-<td>-16</td>
-<td>-53%</td>
+<td>12</td>
+<td>-18</td>
+<td>-60%</td>
 </tr>
 <tr>
 <td>OPCODE_KECCAK256_PER_WORD</td>
@@ -99,9 +99,9 @@
 <tr>
 <td>PRECOMPILE_ECRECOVER</td>
 <td>3000</td>
-<td>1235</td>
-<td>-1765</td>
-<td>-59%</td>
+<td>789</td>
+<td>-2211</td>
+<td>-74%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLAKE2F_BASE</td>
@@ -120,51 +120,51 @@
 <tr>
 <td>PRECOMPILE_BLS_G1ADD</td>
 <td>375</td>
-<td>176</td>
-<td>-199</td>
-<td>-53%</td>
+<td>180</td>
+<td>-195</td>
+<td>-52%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLS_G2ADD</td>
 <td>600</td>
-<td>217</td>
-<td>-383</td>
+<td>213</td>
+<td>-387</td>
 <td>-64%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECADD</td>
 <td>150</td>
-<td>101</td>
-<td>-49</td>
-<td>-33%</td>
+<td>95</td>
+<td>-55</td>
+<td>-37%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_BASE</td>
 <td>45000</td>
-<td>8225</td>
-<td>-36775</td>
-<td>-82%</td>
+<td>8765</td>
+<td>-36235</td>
+<td>-81%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_PER_POINT</td>
 <td>34000</td>
-<td>11543</td>
-<td>-22457</td>
-<td>-66%</td>
+<td>11915</td>
+<td>-22085</td>
+<td>-65%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_POINT_EVALUATION</td>
 <td>50000</td>
-<td>33895</td>
-<td>-16105</td>
-<td>-32%</td>
+<td>25180</td>
+<td>-24820</td>
+<td>-50%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_P256VERIFY</td>
 <td>6900</td>
-<td>1980</td>
-<td>-4920</td>
-<td>-71%</td>
+<td>1212</td>
+<td>-5688</td>
+<td>-82%</td>
 </tr>
 </tbody>
 </table>
@@ -187,8 +187,8 @@
 <td>besu</td>
 <td>2</td>
 <td>geth</td>
-<td>2</td>
-<td>1.00×</td>
+<td>1</td>
+<td>2.00×</td>
 </tr>
 <tr>
 <td>OPCODE_SDIV</td>
@@ -211,32 +211,32 @@
 <td>besu</td>
 <td>3</td>
 <td>geth</td>
-<td>3</td>
-<td>1.00×</td>
+<td>2</td>
+<td>1.50×</td>
 </tr>
 <tr>
 <td>OPCODE_ADDMOD</td>
 <td>besu</td>
 <td>3</td>
 <td>geth</td>
-<td>3</td>
-<td>1.00×</td>
+<td>2</td>
+<td>1.50×</td>
 </tr>
 <tr>
 <td>OPCODE_MULMOD</td>
-<td>geth</td>
-<td>5</td>
 <td>besu</td>
 <td>4</td>
-<td>1.25×</td>
+<td>nethermind</td>
+<td>4</td>
+<td>1.00×</td>
 </tr>
 <tr>
 <td>OPCODE_KECCAK256_BASE</td>
-<td>geth</td>
-<td>14</td>
 <td>besu</td>
 <td>12</td>
-<td>1.17×</td>
+<td>geth</td>
+<td>9</td>
+<td>1.33×</td>
 </tr>
 <tr>
 <td>OPCODE_KECCAK256_PER_WORD</td>
@@ -249,10 +249,10 @@
 <tr>
 <td>PRECOMPILE_ECRECOVER</td>
 <td>geth</td>
-<td>1235</td>
+<td>789</td>
 <td>nethermind</td>
-<td>715</td>
-<td>1.73×</td>
+<td>741</td>
+<td>1.06×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLAKE2F_BASE</td>
@@ -273,58 +273,58 @@
 <tr>
 <td>PRECOMPILE_BLS_G1ADD</td>
 <td>besu</td>
-<td>176</td>
-<td>geth</td>
-<td>116</td>
-<td>1.52×</td>
+<td>180</td>
+<td>nethermind</td>
+<td>99</td>
+<td>1.82×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLS_G2ADD</td>
 <td>besu</td>
-<td>217</td>
-<td>geth</td>
-<td>163</td>
-<td>1.33×</td>
+<td>213</td>
+<td>nethermind</td>
+<td>161</td>
+<td>1.32×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECADD</td>
-<td>geth</td>
-<td>101</td>
+<td>reth</td>
+<td>95</td>
 <td>besu</td>
 <td>94</td>
-<td>1.07×</td>
+<td>1.01×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_BASE</td>
 <td>reth</td>
-<td>8225</td>
-<td>geth</td>
-<td>7427</td>
-<td>1.11×</td>
+<td>8765</td>
+<td>nethermind</td>
+<td>7004</td>
+<td>1.25×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_PER_POINT</td>
 <td>nethermind</td>
-<td>11543</td>
+<td>11915</td>
 <td>reth</td>
-<td>6178</td>
-<td>1.87×</td>
+<td>6041</td>
+<td>1.97×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_POINT_EVALUATION</td>
-<td>geth</td>
-<td>33895</td>
 <td>nethermind</td>
-<td>24302</td>
-<td>1.39×</td>
+<td>25180</td>
+<td>besu</td>
+<td>21423</td>
+<td>1.18×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_P256VERIFY</td>
 <td>geth</td>
-<td>1980</td>
+<td>1212</td>
 <td>besu</td>
-<td>1096</td>
-<td>1.81×</td>
+<td>1114</td>
+<td>1.09×</td>
 </tr>
 </tbody>
 </table>
@@ -382,92 +382,9 @@
 <p><em>None.</em></p>
 <h3 id="incomplete-client-coverage">Incomplete client coverage</h3>
 <p><strong>Clients with no estimations at all:</strong> <code>erigon</code>. These configured clients produced no fits for any gas parameter — check that the runtimes CSV contains their rows and that the fixture-name conventions match. Inspect the <code>evm_gasfit</code> warnings in <code>meta.json</code> for the cause.</p>
-<p>These gas parameters were fit by at least one client but not by every configured client — the listed clients produced no estimation, so the worst-case value was selected from a smaller pool. Inspect the <code>evm_gasfit</code> warnings in <code>meta.json</code> for the cause.</p>
-<table>
-<thead>
-<tr>
-<th>Gas param</th>
-<th>Missing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OPCODE_DIV</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_SDIV</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_MOD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_SMOD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_ADDMOD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_MULMOD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_KECCAK256_BASE</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>OPCODE_KECCAK256_PER_WORD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECRECOVER</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLAKE2F_PER_ROUND</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLS_G1ADD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLS_G2ADD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECADD</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECPAIRING_BASE</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECPAIRING_PER_POINT</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_POINT_EVALUATION</code></td>
-<td><code>erigon</code></td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_P256VERIFY</code></td>
-<td><code>erigon</code></td>
-</tr>
-</tbody>
-</table>
 <h3 id="missing-glue-adjustments">Missing glue adjustments</h3>
 <details>
-<summary><b>Priced glue opcodes with a poor fit</b> — 50 (glue_opcode, client) fits skipped</summary>
+<summary><b>Priced glue opcodes with a poor fit</b> — 11 (glue_opcode, client) fits skipped</summary>
 <p><code>p_value &gt;= glue_contribution_p_value_threshold</code> (0.05) or <code>rsquared &lt; glue_contribution_rsquared_threshold</code> (0.5) — the contribution of these (glue_opcode, client) fits was <strong>skipped</strong> when computing the glue adjustment, so the listed gas params carry a target coefficient that is not net of this glue opcode's runtime on the affected clients. See <code>glue_opcodes_autogenerated_report.md</code> for per-fit metrics.</p>
 <table>
 <thead>
@@ -479,74 +396,14 @@
 </thead>
 <tbody>
 <tr>
-<td><code>ADD</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (R²)</td>
-<td><code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>AND</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>CALLDATACOPY</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
 <td><code>CALLDATALOAD</code></td>
 <td><code>besu</code> (both), <code>geth</code> (R²), <code>nethermind</code> (R²), <code>reth</code> (R²)</td>
 <td><code>OPCODE_ADDMOD</code>, <code>OPCODE_MOD</code>, <code>OPCODE_MULMOD</code>, <code>OPCODE_SMOD</code></td>
 </tr>
 <tr>
-<td><code>CALLDATASIZE</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (R²), <code>nethermind</code> (p-value)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_BLS_G1ADD</code>, <code>PRECOMPILE_BLS_G2ADD</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>DIV</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>DUP</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (p-value)</td>
-<td><code>OPCODE_ADDMOD</code>, <code>OPCODE_DIV</code>, <code>OPCODE_MOD</code>, <code>OPCODE_MULMOD</code>, <code>OPCODE_SDIV</code>, <code>OPCODE_SMOD</code></td>
-</tr>
-<tr>
 <td><code>EXP</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (both)</td>
+<td><code>nethermind</code> (both)</td>
 <td>—</td>
-</tr>
-<tr>
-<td><code>GAS</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (R²), <code>nethermind</code> (p-value)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_BLS_G1ADD</code>, <code>PRECOMPILE_BLS_G2ADD</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>GT</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (R²)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>ISZERO</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>JUMP</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>OPCODE_ADDMOD</code>, <code>OPCODE_MULMOD</code></td>
-</tr>
-<tr>
-<td><code>JUMPDEST</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>OPCODE_ADDMOD</code>, <code>OPCODE_MULMOD</code>, <code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>JUMPI</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
 </tr>
 <tr>
 <td><code>KECCAK256</code></td>
@@ -554,68 +411,13 @@
 <td>—</td>
 </tr>
 <tr>
-<td><code>LT</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>MLOAD</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (R²)</td>
-<td><code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
 <td><code>MSTORE</code></td>
-<td><code>geth</code> (R²), <code>reth</code> (R²)</td>
+<td><code>reth</code> (R²)</td>
 <td><code>OPCODE_KECCAK256_BASE</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
 </tr>
 <tr>
-<td><code>MSTORE8</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>MUL</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>PC</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>PUSH</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (R²)</td>
-<td><code>OPCODE_ADDMOD</code>, <code>OPCODE_KECCAK256_BASE</code>, <code>OPCODE_MOD</code>, <code>OPCODE_MULMOD</code>, <code>OPCODE_SMOD</code>, <code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_BLS_G1ADD</code>, <code>PRECOMPILE_BLS_G2ADD</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>PUSH0</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (both), <code>nethermind</code> (p-value)</td>
-<td><code>OPCODE_KECCAK256_BASE</code></td>
-</tr>
-<tr>
-<td><code>RETURNDATASIZE</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
 <td><code>SELFBALANCE</code></td>
-<td><code>geth</code> (R²)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>STATICCALL</code></td>
-<td><code>erigon</code> (p-value), <code>geth</code> (both)</td>
-<td>—</td>
-</tr>
-<tr>
-<td><code>SUB</code></td>
-<td><code>geth</code> (R²)</td>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
-</tr>
-<tr>
-<td><code>SWAP</code></td>
-<td><code>geth</code> (R²), <code>nethermind</code> (R²)</td>
+<td><code>besu</code> (R²)</td>
 <td>—</td>
 </tr>
 </tbody>
@@ -640,125 +442,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>OPCODE_DIV</code></td>
-<td><code>geth</code></td>
-<td><code>test_arithmetic</code></td>
-<td><code>DIV</code></td>
-<td><code>target_coef</code></td>
-<td>1.527e-05</td>
-<td>0.001</td>
-<td>0.0792</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_SDIV</code></td>
-<td><code>geth</code></td>
-<td><code>test_arithmetic</code></td>
-<td><code>SDIV</code></td>
-<td><code>target_coef</code></td>
-<td>1.727e-05</td>
-<td>0.001</td>
-<td>0.08369</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_MOD</code></td>
-<td><code>geth</code></td>
-<td><code>test_mod</code></td>
-<td><code>MOD</code></td>
-<td><code>target_coef</code></td>
-<td>1.961e-05</td>
-<td>0.001</td>
-<td>0.08314</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_SMOD</code></td>
-<td><code>geth</code></td>
-<td><code>test_mod</code></td>
-<td><code>SMOD</code></td>
-<td><code>target_coef</code></td>
-<td>2.044e-05</td>
-<td>0.001</td>
-<td>0.08293</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_ADDMOD</code></td>
-<td><code>geth</code></td>
-<td><code>test_mod_arithmetic</code></td>
-<td><code>ADDMOD</code></td>
-<td><code>target_coef</code></td>
-<td>2.838e-05</td>
-<td>0.001</td>
-<td>0.08271</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_MULMOD</code></td>
-<td><code>geth</code></td>
-<td><code>test_mod_arithmetic</code></td>
-<td><code>MULMOD</code></td>
-<td><code>target_coef</code></td>
-<td>4.072e-05</td>
-<td>0.001</td>
-<td>0.08309</td>
-<td>R²</td>
-</tr>
-<tr>
 <td><code>OPCODE_KECCAK256_BASE</code></td>
-<td><code>geth</code></td>
+<td><code>reth</code></td>
 <td><code>test_keccak_diff_mem_msg_sizes</code></td>
 <td><code>KECCAK256</code></td>
 <td><code>target_coef</code></td>
-<td>0.0001324</td>
-<td>0.001</td>
-<td>0.09198</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>OPCODE_KECCAK256_PER_WORD</code></td>
-<td><code>geth</code></td>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>msg_words</code></td>
-<td>1.743e-05</td>
-<td>0.001</td>
-<td>0.09236</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECRECOVER</code></td>
-<td><code>geth</code></td>
-<td><code>test_ecrecover</code></td>
-<td><code>ECRECOVER</code></td>
-<td><code>target_coef</code></td>
-<td>0.01235</td>
-<td>0.001</td>
-<td>0.1002</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLAKE2F_BASE</code></td>
-<td><code>geth</code></td>
-<td><code>test_blake2f_uncachable</code></td>
-<td><code>BLAKE2F</code></td>
-<td><code>target_coef</code></td>
-<td>0.0001905</td>
-<td>0.001</td>
-<td>0.1315</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLAKE2F_PER_ROUND</code></td>
-<td><code>geth</code></td>
-<td><code>test_blake2f_benchmark</code></td>
-<td><code>BLAKE2F</code></td>
-<td><code>num_rounds</code></td>
-<td>3.22e-06</td>
-<td>0.001</td>
-<td>0.1425</td>
-<td>R²</td>
+<td>1.844e-05</td>
+<td>0.051</td>
+<td>0.5517</td>
+<td>p-value</td>
 </tr>
 <tr>
 <td><code>PRECOMPILE_BLAKE2F_PER_ROUND</code></td>
@@ -768,163 +460,12 @@
 <td><code>num_rounds</code></td>
 <td>0</td>
 <td>1</td>
-<td>0.9897</td>
+<td>0.9909</td>
 <td>p-value</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLS_G1ADD</code></td>
-<td><code>geth</code></td>
-<td><code>test_bls12_381</code></td>
-<td><code>BLS12_G1ADD</code></td>
-<td><code>target_coef</code></td>
-<td>0.001156</td>
-<td>0.001</td>
-<td>0.09607</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_BLS_G2ADD</code></td>
-<td><code>geth</code></td>
-<td><code>test_bls12_381</code></td>
-<td><code>BLS12_G2ADD</code></td>
-<td><code>target_coef</code></td>
-<td>0.001623</td>
-<td>0.001</td>
-<td>0.101</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECADD</code></td>
-<td><code>geth</code></td>
-<td><code>test_alt_bn128_uncachable</code></td>
-<td><code>ECADD</code></td>
-<td><code>target_coef</code></td>
-<td>0.001003</td>
-<td>0.001</td>
-<td>0.08986</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECPAIRING_BASE</code></td>
-<td><code>geth</code></td>
-<td><code>test_alt_bn128_benchmark</code></td>
-<td><code>ECPAIRING</code></td>
-<td><code>target_coef</code></td>
-<td>0.07427</td>
-<td>0.001</td>
-<td>0.08377</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_ECPAIRING_PER_POINT</code></td>
-<td><code>geth</code></td>
-<td><code>test_ec_pairing</code></td>
-<td><code>ECPAIRING</code></td>
-<td><code>num_pairs</code></td>
-<td>0.06014</td>
-<td>0.001</td>
-<td>0.111</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_POINT_EVALUATION</code></td>
-<td><code>geth</code></td>
-<td><code>test_point_evaluation</code></td>
-<td><code>POINT_EVALUATION</code></td>
-<td><code>target_coef</code></td>
-<td>0.3389</td>
-<td>0.001</td>
-<td>0.08376</td>
-<td>R²</td>
-</tr>
-<tr>
-<td><code>PRECOMPILE_P256VERIFY</code></td>
-<td><code>geth</code></td>
-<td><code>test_p256verify_uncachable</code></td>
-<td><code>P256VERIFY</code></td>
-<td><code>target_coef</code></td>
-<td>0.01979</td>
-<td>0.001</td>
-<td>0.08597</td>
-<td>R²</td>
 </tr>
 </tbody>
 </table>
 <h3 id="other-weak-candidates">Other weak candidates</h3>
-<details>
-<summary><code>OPCODE_MOD</code> — 3 weak combos</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>MOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=191</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>MOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=255</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>MOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=63</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>OPCODE_SMOD</code> — 3 weak combos</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>SMOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=191</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>SMOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=255</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_mod</code></td>
-<td><code>SMOD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mod_bits=63</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
 <details>
 <summary><code>OPCODE_KECCAK256_BASE</code> — 3 weak combos</summary>
 <table>
@@ -942,82 +483,22 @@
 <td><code>test_keccak_diff_mem_msg_sizes</code></td>
 <td><code>KECCAK256</code></td>
 <td><code>target_coef</code></td>
-<td><code>param_mem_size=1024</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mem_size=256</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mem_size=32</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>OPCODE_KECCAK256_PER_WORD</code> — 3 weak combos</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>msg_words</code></td>
 <td><code>param_mem_size=0</code></td>
-<td><code>geth</code> (R²)</td>
+<td><code>reth</code> (p-value)</td>
 </tr>
 <tr>
 <td><code>test_keccak_diff_mem_msg_sizes</code></td>
 <td><code>KECCAK256</code></td>
-<td><code>msg_words</code></td>
-<td><code>param_mem_size=256</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>msg_words</code></td>
-<td><code>param_mem_size=32</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_BLAKE2F_BASE</code> — 1 weak combo</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_blake2f_benchmark</code></td>
-<td><code>BLAKE2F</code></td>
 <td><code>target_coef</code></td>
-<td>—</td>
-<td><code>geth</code> (R²)</td>
+<td><code>param_mem_size=1024</code></td>
+<td><code>reth</code> (p-value)</td>
+</tr>
+<tr>
+<td><code>test_keccak_diff_mem_msg_sizes</code></td>
+<td><code>KECCAK256</code></td>
+<td><code>target_coef</code></td>
+<td><code>param_mem_size=32</code></td>
+<td><code>reth</code> (p-value)</td>
 </tr>
 </tbody>
 </table>
@@ -1040,143 +521,7 @@
 <td><code>BLAKE2F</code></td>
 <td><code>num_rounds</code></td>
 <td>—</td>
-<td><code>geth</code> (R²), <code>reth</code> (p-value)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_ECADD</code> — 4 weak combos</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_alt_bn128</code></td>
-<td><code>ECADD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_bn128=add</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_alt_bn128</code></td>
-<td><code>ECADD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_bn128=add_infinities</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_alt_bn128</code></td>
-<td><code>ECADD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_bn128=add_negative</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-<tr>
-<td><code>test_alt_bn128</code></td>
-<td><code>ECADD</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_bn128=double</code></td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_ECPAIRING_BASE</code> — 1 weak combo</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_ec_pairing</code></td>
-<td><code>ECPAIRING</code></td>
-<td><code>target_coef</code></td>
-<td>—</td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_ECPAIRING_PER_POINT</code> — 1 weak combo</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_alt_bn128_benchmark</code></td>
-<td><code>ECPAIRING</code></td>
-<td><code>num_pairs</code></td>
-<td>—</td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_POINT_EVALUATION</code> — 1 weak combo</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_point_evaluation_uncachable</code></td>
-<td><code>POINT_EVALUATION</code></td>
-<td><code>target_coef</code></td>
-<td>—</td>
-<td><code>geth</code> (R²)</td>
-</tr>
-</tbody>
-</table>
-</details>
-<details>
-<summary><code>PRECOMPILE_P256VERIFY</code> — 1 weak combo</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_p256verify</code></td>
-<td><code>P256VERIFY</code></td>
-<td><code>target_coef</code></td>
-<td>—</td>
-<td><code>geth</code> (R²)</td>
+<td><code>reth</code> (p-value)</td>
 </tr>
 </tbody>
 </table>
@@ -1186,10 +531,10 @@
   <footer class="site-footer">
     <p class="repro">
       Suites
-<code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · run 2026-06-02T08:55:44Z
-      · evm-gasfit 0.0.2
+<code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · run 2026-06-03T06:37:10Z
+      · evm-gasfit 0.0.4
       · benchmarkoor-fetch 0.2.0
-      · commit <code>58e401f</code>
+      · commit <code>bac5531</code>
     </p>
   </footer>
 </body>
