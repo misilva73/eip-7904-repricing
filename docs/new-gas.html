@@ -26,8 +26,8 @@
   <a href="runtime.html">runtime</a> and <a href="glue.html">glue</a> pages for the
   underlying per-fit detail.
 </p>
-<p><em>Generated 2026-06-03 07:50:20Z · fork <code>osaka</code> · anchor_rate 100 Mgas/s</em></p>
-<p><strong>Summary:</strong> 18 parameters proposed — 1 increased, 16 decreased, 0 new, 0 unresolved · 0 warnings · 2 poor-fit selections</p>
+<p><em>Generated 2026-06-08 07:31:48Z · fork <code>osaka</code> · anchor_rate 100 Mgas/s</em></p>
+<p><strong>Summary:</strong> 18 parameters proposed — 1 increased, 16 decreased, 0 new, 0 unresolved · 0 warnings · 1 poor-fit selection</p>
 <h2 id="proposed-gas-parameters">Proposed gas parameters</h2>
 <table>
 <thead>
@@ -57,9 +57,9 @@
 <tr>
 <td>OPCODE_MOD</td>
 <td>5</td>
-<td>3</td>
-<td>-2</td>
-<td>-40%</td>
+<td>2</td>
+<td>-3</td>
+<td>-60%</td>
 </tr>
 <tr>
 <td>OPCODE_SMOD</td>
@@ -99,15 +99,15 @@
 <tr>
 <td>PRECOMPILE_ECRECOVER</td>
 <td>3000</td>
-<td>789</td>
-<td>-2211</td>
-<td>-74%</td>
+<td>833</td>
+<td>-2167</td>
+<td>-72%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLAKE2F_BASE</td>
 <td>0</td>
-<td>43</td>
-<td>+43</td>
+<td>94</td>
+<td>+94</td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -120,51 +120,51 @@
 <tr>
 <td>PRECOMPILE_BLS_G1ADD</td>
 <td>375</td>
-<td>180</td>
-<td>-195</td>
-<td>-52%</td>
+<td>174</td>
+<td>-201</td>
+<td>-54%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLS_G2ADD</td>
 <td>600</td>
-<td>213</td>
-<td>-387</td>
-<td>-64%</td>
+<td>212</td>
+<td>-388</td>
+<td>-65%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECADD</td>
 <td>150</td>
-<td>95</td>
-<td>-55</td>
-<td>-37%</td>
+<td>108</td>
+<td>-42</td>
+<td>-28%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_BASE</td>
 <td>45000</td>
-<td>8765</td>
-<td>-36235</td>
-<td>-81%</td>
+<td>8247</td>
+<td>-36753</td>
+<td>-82%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_PER_POINT</td>
 <td>34000</td>
-<td>11915</td>
-<td>-22085</td>
-<td>-65%</td>
+<td>11695</td>
+<td>-22305</td>
+<td>-66%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_POINT_EVALUATION</td>
 <td>50000</td>
-<td>25180</td>
-<td>-24820</td>
-<td>-50%</td>
+<td>23342</td>
+<td>-26658</td>
+<td>-53%</td>
 </tr>
 <tr>
 <td>PRECOMPILE_P256VERIFY</td>
 <td>6900</td>
-<td>1212</td>
-<td>-5688</td>
-<td>-82%</td>
+<td>1420</td>
+<td>-5480</td>
+<td>-79%</td>
 </tr>
 </tbody>
 </table>
@@ -186,7 +186,7 @@
 <td>OPCODE_DIV</td>
 <td>besu</td>
 <td>2</td>
-<td>geth</td>
+<td>erigon</td>
 <td>1</td>
 <td>2.00×</td>
 </tr>
@@ -194,23 +194,23 @@
 <td>OPCODE_SDIV</td>
 <td>besu</td>
 <td>2</td>
-<td>geth</td>
+<td>erigon</td>
 <td>2</td>
 <td>1.00×</td>
 </tr>
 <tr>
 <td>OPCODE_MOD</td>
 <td>besu</td>
-<td>3</td>
-<td>geth</td>
 <td>2</td>
-<td>1.50×</td>
+<td>erigon</td>
+<td>2</td>
+<td>1.00×</td>
 </tr>
 <tr>
 <td>OPCODE_SMOD</td>
 <td>besu</td>
 <td>3</td>
-<td>geth</td>
+<td>erigon</td>
 <td>2</td>
 <td>1.50×</td>
 </tr>
@@ -218,7 +218,7 @@
 <td>OPCODE_ADDMOD</td>
 <td>besu</td>
 <td>3</td>
-<td>geth</td>
+<td>erigon</td>
 <td>2</td>
 <td>1.50×</td>
 </tr>
@@ -248,83 +248,83 @@
 </tr>
 <tr>
 <td>PRECOMPILE_ECRECOVER</td>
+<td>erigon</td>
+<td>833</td>
 <td>geth</td>
-<td>789</td>
-<td>nethermind</td>
-<td>741</td>
-<td>1.06×</td>
+<td>781</td>
+<td>1.07×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLAKE2F_BASE</td>
+<td>erigon</td>
+<td>94</td>
 <td>besu</td>
-<td>43</td>
-<td>reth</td>
-<td>39</td>
-<td>1.10×</td>
+<td>41</td>
+<td>2.29×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLAKE2F_PER_ROUND</td>
 <td>besu</td>
 <td>1</td>
-<td>geth</td>
+<td>erigon</td>
 <td>1</td>
 <td>1.00×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLS_G1ADD</td>
 <td>besu</td>
-<td>180</td>
-<td>nethermind</td>
-<td>99</td>
-<td>1.82×</td>
+<td>174</td>
+<td>erigon</td>
+<td>100</td>
+<td>1.74×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_BLS_G2ADD</td>
 <td>besu</td>
-<td>213</td>
+<td>212</td>
 <td>nethermind</td>
-<td>161</td>
-<td>1.32×</td>
+<td>149</td>
+<td>1.42×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECADD</td>
+<td>erigon</td>
+<td>108</td>
 <td>reth</td>
-<td>95</td>
-<td>besu</td>
-<td>94</td>
-<td>1.01×</td>
+<td>96</td>
+<td>1.12×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_BASE</td>
 <td>reth</td>
-<td>8765</td>
+<td>8247</td>
 <td>nethermind</td>
-<td>7004</td>
-<td>1.25×</td>
+<td>6663</td>
+<td>1.24×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_ECPAIRING_PER_POINT</td>
 <td>nethermind</td>
-<td>11915</td>
+<td>11695</td>
 <td>reth</td>
-<td>6041</td>
-<td>1.97×</td>
+<td>6080</td>
+<td>1.92×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_POINT_EVALUATION</td>
 <td>nethermind</td>
-<td>25180</td>
+<td>23342</td>
 <td>besu</td>
-<td>21423</td>
-<td>1.18×</td>
+<td>20864</td>
+<td>1.12×</td>
 </tr>
 <tr>
 <td>PRECOMPILE_P256VERIFY</td>
+<td>erigon</td>
+<td>1420</td>
 <td>geth</td>
-<td>1212</td>
-<td>besu</td>
-<td>1114</td>
-<td>1.09×</td>
+<td>1180</td>
+<td>1.20×</td>
 </tr>
 </tbody>
 </table>
@@ -334,57 +334,57 @@
 <p>One collapsible block per gas parameter showing every per-client candidate that the worst-case selector saw. Rows are model combos (the source regression's <code>test_name</code>, <code>target_opcode</code>, <code>model_coef_name</code>, and any <code>model_by</code> factors — components constant within a parameter are dropped from the label). Cells carry each candidate's proposed gas; the cell the per-client selector picked is outlined in black. Colors are <code>log2(proposed / current)</code> against that parameter's baseline on a per-parameter symmetric scale.</p>
 <p><em>Single-combo parameters omitted (see proposal table for the sole estimation): <code>OPCODE_DIV</code>, <code>OPCODE_SDIV</code>, <code>OPCODE_ADDMOD</code>, <code>OPCODE_MULMOD</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_BLS_G1ADD</code>, <code>PRECOMPILE_BLS_G2ADD</code>.</em></p>
 <details>
-<summary><code>OPCODE_MOD</code> — 4 combos × 4 clients</summary>
+<summary><code>OPCODE_MOD</code> — 4 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__OPCODE_MOD.png" /></p>
 </details>
 <details>
-<summary><code>OPCODE_SMOD</code> — 4 combos × 4 clients</summary>
+<summary><code>OPCODE_SMOD</code> — 4 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__OPCODE_SMOD.png" /></p>
 </details>
 <details>
-<summary><code>OPCODE_KECCAK256_BASE</code> — 4 combos × 4 clients</summary>
+<summary><code>OPCODE_KECCAK256_BASE</code> — 4 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__OPCODE_KECCAK256_BASE.png" /></p>
 </details>
 <details>
-<summary><code>OPCODE_KECCAK256_PER_WORD</code> — 4 combos × 4 clients</summary>
+<summary><code>OPCODE_KECCAK256_PER_WORD</code> — 4 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__OPCODE_KECCAK256_PER_WORD.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_BLAKE2F_BASE</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_BLAKE2F_BASE</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_BLAKE2F_BASE.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_BLAKE2F_PER_ROUND</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_BLAKE2F_PER_ROUND</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_BLAKE2F_PER_ROUND.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_ECADD</code> — 5 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_ECADD</code> — 5 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_ECADD.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_ECPAIRING_BASE</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_ECPAIRING_BASE</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_ECPAIRING_BASE.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_ECPAIRING_PER_POINT</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_ECPAIRING_PER_POINT</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_ECPAIRING_PER_POINT.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_POINT_EVALUATION</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_POINT_EVALUATION</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_POINT_EVALUATION.png" /></p>
 </details>
 <details>
-<summary><code>PRECOMPILE_P256VERIFY</code> — 2 combos × 4 clients</summary>
+<summary><code>PRECOMPILE_P256VERIFY</code> — 2 combos × 5 clients</summary>
 <p><img alt="" src="figs/proposal/provenance__PRECOMPILE_P256VERIFY.png" /></p>
 </details>
 <h2 id="warnings">Warnings</h2>
 <h3 id="missing-parameters">Missing parameters</h3>
 <p><em>None.</em></p>
 <h3 id="incomplete-client-coverage">Incomplete client coverage</h3>
-<p><strong>Clients with no estimations at all:</strong> <code>erigon</code>. These configured clients produced no fits for any gas parameter — check that the runtimes CSV contains their rows and that the fixture-name conventions match. Inspect the <code>evm_gasfit</code> warnings in <code>meta.json</code> for the cause.</p>
+<p><em>None.</em></p>
 <h3 id="missing-glue-adjustments">Missing glue adjustments</h3>
 <details>
-<summary><b>Priced glue opcodes with a poor fit</b> — 11 (glue_opcode, client) fits skipped</summary>
+<summary><b>Priced glue opcodes with a poor fit</b> — 24 (glue_opcode, client) fits skipped</summary>
 <p><code>p_value &gt;= glue_contribution_p_value_threshold</code> (0.05) or <code>rsquared &lt; glue_contribution_rsquared_threshold</code> (0.5) — the contribution of these (glue_opcode, client) fits was <strong>skipped</strong> when computing the glue adjustment, so the listed gas params carry a target coefficient that is not net of this glue opcode's runtime on the affected clients. See <code>glue_opcodes_autogenerated_report.md</code> for per-fit metrics.</p>
 <table>
 <thead>
@@ -396,18 +396,48 @@
 </thead>
 <tbody>
 <tr>
+<td><code>AND</code></td>
+<td><code>erigon</code> (R²)</td>
+<td>—</td>
+</tr>
+<tr>
 <td><code>CALLDATALOAD</code></td>
-<td><code>besu</code> (both), <code>geth</code> (R²), <code>nethermind</code> (R²), <code>reth</code> (R²)</td>
+<td><code>besu</code> (both), <code>erigon</code> (R²), <code>geth</code> (R²), <code>nethermind</code> (R²), <code>reth</code> (R²)</td>
 <td><code>OPCODE_ADDMOD</code>, <code>OPCODE_MOD</code>, <code>OPCODE_MULMOD</code>, <code>OPCODE_SMOD</code></td>
 </tr>
 <tr>
 <td><code>EXP</code></td>
-<td><code>nethermind</code> (both)</td>
+<td><code>erigon</code> (R²), <code>nethermind</code> (both)</td>
 <td>—</td>
 </tr>
 <tr>
+<td><code>GT</code></td>
+<td><code>besu</code> (R²)</td>
+<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
+</tr>
+<tr>
+<td><code>ISZERO</code></td>
+<td><code>erigon</code> (R²)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>JUMPDEST</code></td>
+<td><code>besu</code> (R²)</td>
+<td><code>OPCODE_ADDMOD</code>, <code>OPCODE_MULMOD</code>, <code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
+</tr>
+<tr>
+<td><code>JUMPI</code></td>
+<td><code>besu</code> (R²)</td>
+<td><code>PRECOMPILE_BLAKE2F_BASE</code>, <code>PRECOMPILE_ECADD</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
+</tr>
+<tr>
 <td><code>KECCAK256</code></td>
-<td><code>besu</code> (R²), <code>geth</code> (R²), <code>nethermind</code> (both), <code>reth</code> (both)</td>
+<td><code>besu</code> (R²), <code>erigon</code> (R²), <code>geth</code> (R²), <code>nethermind</code> (both), <code>reth</code> (both)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>LT</code></td>
+<td><code>besu</code> (R²)</td>
 <td>—</td>
 </tr>
 <tr>
@@ -416,8 +446,18 @@
 <td><code>OPCODE_KECCAK256_BASE</code>, <code>PRECOMPILE_ECPAIRING_BASE</code>, <code>PRECOMPILE_ECRECOVER</code>, <code>PRECOMPILE_P256VERIFY</code>, <code>PRECOMPILE_POINT_EVALUATION</code></td>
 </tr>
 <tr>
+<td><code>RETURNDATASIZE</code></td>
+<td><code>besu</code> (R²), <code>erigon</code> (R²)</td>
+<td>—</td>
+</tr>
+<tr>
 <td><code>SELFBALANCE</code></td>
-<td><code>besu</code> (R²)</td>
+<td><code>besu</code> (R²), <code>nethermind</code> (R²)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>SWAP</code></td>
+<td><code>erigon</code> (R²)</td>
 <td>—</td>
 </tr>
 </tbody>
@@ -442,17 +482,6 @@
 </thead>
 <tbody>
 <tr>
-<td><code>OPCODE_KECCAK256_BASE</code></td>
-<td><code>reth</code></td>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td>1.844e-05</td>
-<td>0.051</td>
-<td>0.5517</td>
-<td>p-value</td>
-</tr>
-<tr>
 <td><code>PRECOMPILE_BLAKE2F_PER_ROUND</code></td>
 <td><code>reth</code></td>
 <td><code>test_blake2f_benchmark</code></td>
@@ -460,49 +489,12 @@
 <td><code>num_rounds</code></td>
 <td>0</td>
 <td>1</td>
-<td>0.9909</td>
+<td>0.9896</td>
 <td>p-value</td>
 </tr>
 </tbody>
 </table>
 <h3 id="other-weak-candidates">Other weak candidates</h3>
-<details>
-<summary><code>OPCODE_KECCAK256_BASE</code> — 3 weak combos</summary>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Target opcode</th>
-<th>Coef</th>
-<th>Combo</th>
-<th>Failing clients</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mem_size=0</code></td>
-<td><code>reth</code> (p-value)</td>
-</tr>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mem_size=1024</code></td>
-<td><code>reth</code> (p-value)</td>
-</tr>
-<tr>
-<td><code>test_keccak_diff_mem_msg_sizes</code></td>
-<td><code>KECCAK256</code></td>
-<td><code>target_coef</code></td>
-<td><code>param_mem_size=32</code></td>
-<td><code>reth</code> (p-value)</td>
-</tr>
-</tbody>
-</table>
-</details>
 <details>
 <summary><code>PRECOMPILE_BLAKE2F_PER_ROUND</code> — 1 weak combo</summary>
 <table>
@@ -521,7 +513,7 @@
 <td><code>BLAKE2F</code></td>
 <td><code>num_rounds</code></td>
 <td>—</td>
-<td><code>reth</code> (p-value)</td>
+<td><code>erigon</code> (p-value), <code>reth</code> (p-value)</td>
 </tr>
 </tbody>
 </table>
@@ -531,10 +523,10 @@
   <footer class="site-footer">
     <p class="repro">
       Suites
-<code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · run 2026-06-03T06:37:10Z
+<code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · run 2026-06-07T23:56:06Z
       · evm-gasfit 0.0.4
       · benchmarkoor-fetch 0.2.0
-      · commit <code>bac5531</code>
+      · commit <code>fca0ae4</code>
     </p>
   </footer>
 </body>
