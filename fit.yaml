@@ -6,6 +6,7 @@ anchor_rate: 100000000
 clients:
   - besu
   - erigon
+  - ethrex
   - geth
   - nethermind
   - reth
