@@ -30,18 +30,10 @@
 </p>
 
 <p class="takeaway">
-  Of the 18 gas parameters analysed,
-  <strong>1</strong> warrant an increase and
-  <strong>16</strong> could be reduced relative to the current cost
-  table. The largest pressure is concentrated in the modular-arithmetic opcodes
-  and several precompiles; see the <a href="new-gas.html">new-gas proposal</a> for
-  the per-parameter breakdown.
-</p>
-
-<p class="warning">
-  <strong>Preliminary results.</strong> We are still collecting additional
-  benchmarking runs to firm up these numbers, so the gas parameters may still shift
-  slightly as more data comes in.
+  These are the final results. With the BAL optimizations in place, all of the
+  target operations now perform above the 100&nbsp;Mgas/s anchor and therefore do
+  not require a gas cost increase. See the
+  <a href="new-gas.html">new-gas proposal</a> for the per-parameter breakdown.
 </p>
 
 <div class="cards">
@@ -70,7 +62,7 @@
 <code>3182dda7b93dee61</code>, <code>a11611f320a39015</code>      · run 2026-06-10T06:16:46Z
       · evm-gasfit 0.0.4
       · benchmarkoor-fetch 0.2.0
-      · commit <code>b5babd1</code>
+      · commit <code>013999d</code>
     </p>
   </footer>
 </body>
